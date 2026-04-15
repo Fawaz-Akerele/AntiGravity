@@ -6,7 +6,7 @@ function Services() {
     const sectionRef = useRef(null)
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/services')
+        fetch('https://antigravity-ethrgndra3fgcges.westcentralus-01.azurewebsites.net/api/services')
             .then(res => res.json())
             .then(data => setServices(data))
             .catch(() => {
