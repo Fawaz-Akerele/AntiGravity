@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
     res.json({
         name: 'Anti-Gravity Technology API',
         version: '1.0.0',
-        endpoints: ['/api/images', '/api/services', '/api/contact', '/api/health']
+        endpoints: ['/api/images', '/api/services', '/api/contact', '/api/health', '/api/contact/:id']
     });
 });
 

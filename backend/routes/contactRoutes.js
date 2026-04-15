@@ -26,4 +26,15 @@ router.post('/', (req, res) => {
     res.status(201).json({ success: true, message: 'Message sent successfully! We will get back to you soon.' });
 });
 
+router.get('/:id', (req, res) => {
+    const { id } = req.params;
+    const contact = contacts.find(c => c.id === parseInt(id));
+
+    if (!contact) {
+        return res.status(404).json({ error: 'Contact not found' });
+    }
+
+    res.json(contact);
+});
+
 module.exports = router;
