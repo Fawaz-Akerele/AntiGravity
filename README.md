@@ -104,3 +104,9 @@ The app runs at **http://localhost:5173**
 - **Secondary:** `#a855f7` (Neon Purple)
 - **Background:** `#0a0a1a` (Dark Space)
 - **Glass:** `backdrop-filter: blur(16px)` with 5% white bg
+
+## Enviromental Variable
+> setup your env connection and replace the MONGO_URI dummy text with your actual URI.
+
+- **MONGO_URI=your_mongodb_connection_string**
+- **PORT=5000**
