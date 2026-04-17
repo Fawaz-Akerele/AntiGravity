@@ -1,40 +1,42 @@
+// backend/routes/contactRoutes.js
 const express = require('express');
 const router = express.Router();
-
-// In-memory store for contact submissions
-const contacts = [];
+const Contact = require('../models/Contact');
 
 // POST /api/contact
-router.post('/', (req, res) => {
-    const { name, email, message } = req.body;
+router.post('/', async (req, res) => {
+  const { name, email, message } = req.body;
 
-    if (!name || !email || !message) {
-        return res.status(400).json({ error: 'All fields are required' });
-    }
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
 
-    const contact = {
-        id: contacts.length + 1,
-        name,
-        email,
-        message,
-        createdAt: new Date().toISOString()
-    };
+  try {
+    const contact = await Contact.create({
+      name,
+      email,
+      message,
+    });
 
-    contacts.push(contact);
     console.log('📩 New contact submission:', contact);
-
-    res.status(201).json({ success: true, message: 'Message sent successfully! We will get back to you soon.' });
+    res.status(201).json({
+      success: true,
+      message: 'Message sent successfully! We will get back to you soon.',
+    });
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
-router.get('/:id', (req, res) => {
-    const { id } = req.params;
-    const contact = contacts.find(c => c.id === parseInt(id));
-
-    if (!contact) {
-        return res.status(404).json({ error: 'Contact not found' });
-    }
-
+// Optional: GET /api/contact/:id
+router.get('/:id', async (req, res) => {
+  try {
+    const contact = await Contact.findById(req.params.id);
+    if (!contact) return res.status(404).json({ error: 'Contact not found' });
     res.json(contact);
+  } catch (error) {
+    res.status(500).json({ error: 'Server error' });
+  }
 });
 
 module.exports = router;

@@ -1,8 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const dotenv = require('dotenv');
+
 const imageRoutes = require('./routes/imageRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const contactRoutes = require('./routes/contactRoutes');
+
+// DB connect file 
+const connectDB = require('./config/db');
+
+// Load env vars
+dotenv.config();
+
+// Connect to MongoDB
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
