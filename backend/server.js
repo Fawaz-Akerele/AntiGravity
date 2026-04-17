@@ -41,5 +41,7 @@ app.listen(PORT, () => {
     console.log(`   GET  /api/images`);
     console.log(`   GET  /api/services`);
     console.log(`   POST /api/contact`);
-    console.log(`   GET  /api/health\n`);
+    console.log(`   GET  /api/health`);
+    console.log(`   GET  /api/contact/:id`);
+
 });
