@@ -48,7 +48,7 @@ function About() {
                             Breaking Free From<br />Earth's Grasp
                         </h2>
                         <p className="about-text">
-                            Founded in 2025, Anti-Gravity Technology is at the forefront of revolutionary
+                            Founded in 2026, Anti-Gravity Technology is at the forefront of revolutionary
                             propulsion research. Our team of quantum physicists, aerospace engineers, and
                             visionary designers are committed to making gravity optional.
                         </p>
