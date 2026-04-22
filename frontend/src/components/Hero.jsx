@@ -33,7 +33,7 @@ function Hero() {
             <div className="orbit-ring ring-3"></div>
 
             <div className="hero-content">
-                <div className="hero-badge">⚡ DEFYING PHYSICS SINCE 2025</div>
+                <div className="hero-badge">⚡ DEFYING PHYSICS SINCE 2026</div>
                 <h1 className="hero-title">
                     <span className="title-line">ANTI</span>
                     <span className="title-line accent">GRAVITY</span>
